@@ -77,6 +77,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 	}
 
+	@Override
+	public void delete(String name) throws EmployeeNotFoundException {
+		Employee employee = repository.findByName(name);
+		if(employee == null) {
+			throw new EmployeeNotFoundException("Employee doesn't exists!!");
+		} else {
+			repository.delete(name);
+		}
+		
+	}
+
 	
 
 }

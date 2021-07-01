@@ -76,6 +76,16 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	}
 
+	@Override
+	public void delete(String name) {
+	Iterator<Employee> it =	employeeSet.iterator();
+	while(it.hasNext()) {
+		if(it.next().getName()== name) {
+			it.remove();
+		}
+	}
+	}
+
 	
 
 }

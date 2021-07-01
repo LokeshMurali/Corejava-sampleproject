@@ -59,13 +59,23 @@ public class EmployeeServiceTest {
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);
 
-		System.out.println("Deleting an employee");
+		System.out.println("Deleting an employee by id");
 		id = 3;
 		try {
 			service.delete(id);
 			employeeSet = service.findAll();
 			System.out.println(employeeSet);
 		} catch (EmployeeNotFoundException e) {
+		}
+		
+		System.out.println("Deleting an employee by name");
+		name = "Prithivi";
+		try {
+		service.delete(name);
+		employeeSet = service.findAll();
+		System.out.println(employeeSet);
+		} catch(EmployeeNotFoundException e) {
+			
 		}
 
 	}
