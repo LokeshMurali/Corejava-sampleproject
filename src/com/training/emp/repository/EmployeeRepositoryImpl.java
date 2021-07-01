@@ -37,6 +37,16 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		}
 		return null;
 	}
+	
+	@Override
+	public Employee findByName(String name) {
+		for(Employee employee: employeeSet) {
+			if(employee.getName() == name) {
+				return employee;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public void save(Employee employee) {
@@ -65,5 +75,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		}
 
 	}
+
+	
 
 }

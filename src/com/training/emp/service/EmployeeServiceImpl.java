@@ -34,6 +34,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 			return employee;
 		}
 	}
+	
+	@Override
+	public Employee findByName(String name) throws EmployeeNotFoundException {
+		Employee employee = repository.findByName(name);
+		if(employee == null) {
+			throw new EmployeeNotFoundException("Employee Name Not Found");
+		} else {
+			return employee;
+		}
+	}
 
 	@Override
 	public void save(Employee employee) {
@@ -57,14 +67,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void delete(int id) throws EmployeeNotFoundException {
-		// Employee employee = repository.findById(id);
-		Employee employee = dao.findById(id);
+	    Employee employee = repository.findById(id);
+		//Employee employee = dao.findById(id);
 		if (employee == null) {
 			throw new EmployeeNotFoundException("Employee doesn't exist!!");
 		} else {
-			// repository.delete(id);
-			dao.delete(id);
+			 repository.delete(id);
+			//dao.delete(id);
 		}
 	}
+
+	
 
 }

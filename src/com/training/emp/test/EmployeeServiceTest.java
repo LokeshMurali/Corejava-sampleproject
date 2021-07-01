@@ -31,6 +31,15 @@ public class EmployeeServiceTest {
 		} catch (EmployeeNotFoundException e) {
 			// 5. If emp not found
 		}
+		
+		System.out.println("Find By Name");
+		String name = "Saranya";
+		try {
+		Employee employee = service.findByName(name);
+		
+		System.out.println(employee);
+		
+		} catch (EmployeeNotFoundException e) {}
 
 		System.out.println("Update Id");
 		// 1. Create New employee Data to be updated
